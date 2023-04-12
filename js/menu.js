@@ -45,6 +45,7 @@ function menu2() {
 
         }
         if (opcion === "5") {
+            document.querySelector("#id_perent").innerHTML = ""
             flag = false;
         }
 
@@ -54,14 +55,8 @@ function menu2() {
 function menu() {
     let flag = true;
     while (flag) {
-        document.querySelector("#id_perent").innerHTML = ""
         let serchh = prompt(msg)
         if (serchh === "1") {
-            valitaziaAddPerson();
-           persons.forEach (person => person.render());
-            break;
-        }
-        if (serchh === "2") {
             document.querySelector("#id_perent").innerHTML = ""
             id = prompt("Enter id")
             let res = delete_person(persons, id)
@@ -69,14 +64,14 @@ function menu() {
             persons.forEach(person => person.render())
             break;
         }
-        if (serchh === "3") {
+        if (serchh === "2") {
             document.querySelector("#id_perent").innerHTML = ""
             let id = prompt("Enter id");
             update_person(persons, id);
             document.querySelector("#id_perent").innerHTML += `<h2> the person update in database </h2>`;
             break;
         }
-        if (serchh === "4") {
+        if (serchh === "3") {
             document.querySelector("#id_perent").innerHTML = ""
             let opcion = prompt("you want search by name or by id");
             if (opcion === "id") {
@@ -92,8 +87,10 @@ function menu() {
             }
             break
         }
-        if (serchh === "5") {
+        if (serchh === "4") {
+            document.querySelector("#id_perent").innerHTML = ""
             flag = false;
         }
     }
 }
+printPerson = persons.forEach(person => person.render())

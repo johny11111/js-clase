@@ -12,6 +12,13 @@ body {
     align-items: center;
     flex-direction: column;
   }
+  #signup{
+    margin-top: 50px;
+    width: 212px;
+    min-height: 337px;
+    
+    background: rgb(243, 145, 145);
+  }
   
   #id_perent {
     max-width: 900px !important;

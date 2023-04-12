@@ -1,5 +1,5 @@
 
-// class to add persons to the database 
+// !class to add persons to the database 
 class ClassPerson {
     constructor(_name, _lastName, _id, _birth, _city, id_perent) {
         this.name = _name,
@@ -13,8 +13,7 @@ class ClassPerson {
     age() {
         return new Date().getFullYear() - this.birth.split("/")[2]
     }
-
-
+    
     render() {
         let div = document.createElement("div");
         div.className = "container bg-primary border 2px solid p-2 m-2 col-5"

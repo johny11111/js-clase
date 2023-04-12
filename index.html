@@ -13,22 +13,45 @@
 
 <body>
     <div class="container-fluid">
-        <nav class="navbar navbar-expand-md ">
-            <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarM">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-           
-            <div class="collapse navbar-collapse" id="navbarM">
+        <div class="container-fluid">
+            <nav class="navbar navbar-expand-md ">
+                <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarM">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarM">
                     <label for="btn">חתכים, שאילתות ודו"חות</label>
                     <button id="btn" class="btn btn-danger navbar-item" onclick="menu2()">menu 2</button>
                     <label for="btn1">תפריט עריכת פרטים והוספת אדם</label>
-                    <button id="btn1" class="btn btn-danger navbar-item " onclick="menu()">menu</button>     
-            </div>
-            <a id="home" href="#" class=" btn btn-light navbar-brand">home</a>
-        </nav>
-    </div>
-    <div id="id_perent" class="container center p-0 m-0 row ">
-        <!-- here show the persons -->
+                    <button id="btn1" class="btn btn-danger navbar-item " onclick="menu()">menu</button>
+                </div>
+                <a id="home" href="#" class=" btn btn-light navbar-brand">home</a>
+            </nav>
+        </div>
+        <div id="signup" class="d-none d-lg-block float-start">
+            <h3>מילוי פרטים אישיים </h3>
+            <form>
+                <label for=""></label>
+                <input id="fn" type="text" placeholder="שם פרטי" required>
+                <label for=""></label>
+                <input id="ln" type="text" placeholder="שם משפחה" required>
+                <label for=""></label>
+                <input id="id" type="text" placeholder="ת'ז">
+                <label for=""></label>
+                <input id="id_perentt" type="text" placeholder="תז הורה">
+                <label for=""></label>
+                <input id="city" type="text" placeholder="עיר מגורים"><br>
+                <label  for="">תאריך לידה</label>
+                <input id="date" type="text" placeholder="dd/mm/yy"><br><br>
+                <label for=""></label>
+                <button id="btn2" class="btn btn-primary">הוספה</button>
+            </form>
+        </div>
+
+        <div id="id_perent" class="container center p-0 m-0 row">
+            <!-- here show the persons -->
+        </div>
+
     </div>
     <script src="js/functions.js"></script>
     <script src="js/classPerson.js"></script>
