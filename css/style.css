@@ -1,47 +1,57 @@
 .center {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 body {
-    direction: rtl;
-    background: silver;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
-  #signup{
-    margin-top: 50px;
-    width: 212px;
-    min-height: 337px;
-    
-    background: rgb(243, 145, 145);
-  }
+  direction: rtl;
+  background: silver;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+#search{
+  max-width:auto !important;
+}
+#home{
+  margin: 0;
+}
+#signup{
+  margin-top: 50px;
+  width: 212px;
+  min-height: 337px;
   
-  #id_perent {
-    max-width: 900px !important;
-    max-height: 250px;
-    overflow: auto;
-    background: #3B444B;
-    color: aliceblue;
-  }
+  background: rgb(243, 145, 145);
+}
+
+#id_perent {
+  max-width: 900px !important;
+  max-height: 250px;
+  overflow: auto;
+  background: #3B444B;
+  color: aliceblue;
+}
 
 #divCard {
-    background: rgb(233, 8, 8) !important;
-    color: rgb(255, 255, 255);
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-    align-items: center;
-    text-align: center;
+  background: rgb(233, 8, 8) !important;
+  color: rgb(255, 255, 255);
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
 
-    max-width: 220px !important;
+  max-width: 220px !important;
+}
+#id_perent button{
+ width: 55px;
+
 }
 
 #btn:hover,
 #btn1:hover {
 
-    background: blue;
+  background: blue;
 }
