@@ -159,10 +159,16 @@ const searchByName = (person) => {
 
 
 //!function to show persons over specific age
-function showPersonsbyAge(persons, age) {
-    let result = persons.filter(item => item.age() >= age);
+function showPersonsbyAge(persons) {
+    document.querySelector("#id_perent").innerHTML = "";
+   let age = document.querySelector("#SBA").value
+   if (age == 0){
+    persons.forEach(person => person.render());
+   }
+    let result = persons.filter(item => item.age() == age);
     console.log(result);
-    return result
+    return result.forEach(item => item.render())
+   
 }
 
 // ?function to show person children by search id,
