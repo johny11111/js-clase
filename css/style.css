@@ -4,6 +4,7 @@
   justify-content: center;
   text-align: center;
 }
+
 body {
   direction: rtl;
   background: silver;
@@ -12,17 +13,20 @@ body {
   align-items: center;
   flex-direction: column;
 }
-#search{
-  max-width:auto !important;
+
+#search {
+  max-width: auto !important;
 }
-#home{
+
+#home {
   margin: 0;
 }
-#signup{
+
+#signup {
   margin-top: 50px;
   width: 212px;
   min-height: 337px;
-  
+
   background: rgb(243, 145, 145);
 }
 
@@ -45,8 +49,9 @@ body {
 
   max-width: 220px !important;
 }
-#id_perent button{
- width: 55px;
+
+#id_perent button {
+  width: 55px;
 
 }
 

@@ -1,6 +1,6 @@
 //?function to chacking if value is number or is empty string 
 function chacking(name) {
-    if (name ===  ""){
+    if (name === "") {
         return alert("invalid input (name/last name)")
     }
     let regex = /^[a-z A-Z א-ת]+$/;
@@ -14,25 +14,25 @@ const chackbirds = (rex) => (/^\d{2}\/\d{2}\/\d{4}$/.test(rex) && rex !== "" ? t
 //?function to check id 
 function checkid(id) {
     let regex = /^\d{9}$/
-   
-    if (id ===  "" ||  !regex.test(id) ){
+
+    if (id === "" || !regex.test(id)) {
         return alert("invalid input (id)")
     }
-    
+
     return regex.test(id);
 }
-        
+
 // !valitazia and add person
 
 let btn = document.querySelector("#btn2").addEventListener("click", (event) => {
     event.preventDefault();
 
-let firstName = document.querySelector("#fn");
-let lastName = document.querySelector("#ln");
-let id = document.querySelector("#id");
-let birth = document.querySelector("#date");
-let city = document.querySelector("#city");
-let idPerent = document.querySelector("#id_perentt");
+    let firstName = document.querySelector("#fn");
+    let lastName = document.querySelector("#ln");
+    let id = document.querySelector("#id");
+    let birth = document.querySelector("#date");
+    let city = document.querySelector("#city");
+    let idPerent = document.querySelector("#id_perentt");
 
     // ?receive the input
 
@@ -42,68 +42,68 @@ let idPerent = document.querySelector("#id_perentt");
     let birthVal = birth.value;
     let cityVal = city.value;
     let idPerentVal = idPerent.value;
-    
+
     // ! check if exict person in database
-    let p = persons.forEach (person => {
-        if (person.id === id )
-        alert("the person is already exist")
+    let p = persons.forEach(person => {
+        if (person.id === id)
+            alert("the person is already exist")
 
     })
 
-    if(idPerentVal === ""){
+    if (idPerentVal === "") {
         idPerentVal = "00000"
     }
-     // ?check if the inputs are valid
-    let validInputs = chacking(firstNameVal) && chacking(lastNameVal) && checkid(idVal) && chacking(cityVal) && chackbirds(birthVal); 
+    // ?check if the inputs are valid
+    let validInputs = chacking(firstNameVal) && chacking(lastNameVal) && checkid(idVal) && chacking(cityVal) && chackbirds(birthVal);
     if (validInputs) {
         let personExists = persons.find(person => person.id === idVal);
         if (personExists) {
-           alert("The person already exists");
+            alert("The person already exists");
         }
-        else if (!personExists){
+        else if (!personExists) {
             persons.push(new ClassPerson(firstNameVal, lastNameVal, idVal, birthVal, cityVal, idPerentVal));
             let list = document.querySelector("#id_perent");
             list.innerHTML = "";
             persons.forEach(person => person.render());
-        }   
+        }
     }
 });
 
 const delete_person = (names, ID) => {
     for (i in ID) {
-      const index = names.findIndex(person => person.id === ID[i]);
-      if (index === -1) {
-        console.log("Person not found");
-        continue;
-      }
-      const isParent = names.some(person => person.idPerent === ID[i]);
-      if (isParent) {
-        const children = names.filter(person => person.idPerent === ID[i]);
-        let opcion = prompt(`
+        const index = names.findIndex(person => person.id === ID[i]);
+        if (index === -1) {
+            console.log("Person not found");
+            continue;
+        }
+        const isParent = names.some(person => person.idPerent === ID[i]);
+        if (isParent) {
+            const children = names.filter(person => person.idPerent === ID[i]);
+            let opcion = prompt(`
           you can delete your children to 
           do you want to delete your children?`);
-        if (opcion === 'yes') {
-          delete_person(names, children.map(child => child.id));
-        } else {
-          console.log("Children not deleted");
+            if (opcion === 'yes') {
+                delete_person(names, children.map(child => child.id));
+            } else {
+                console.log("Children not deleted");
+            }
         }
-      }
-      names.splice(index, 1);
+        names.splice(index, 1);
     }
     return names;
-  };
-  
+};
+
 
 
 document.addEventListener("click", (event) => {
     if (event.target.tagName === "BUTTON") {
-      const id = event.target.getAttribute("id");
-      delete_person(persons,[id]);
-      document.querySelector("#id_perent").innerHTML = ""
-      let res = persons.forEach(person => person.render());
+        const id = event.target.getAttribute("id");
+        delete_person(persons, [id]);
+        document.querySelector("#id_perent").innerHTML = ""
+        let res = persons.forEach(person => person.render());
     }
-  });
-  
+});
+
 
 
 // ?function to update a person
@@ -140,18 +140,18 @@ function searchById(person) {
 // ?function to search by name
 const searchByName = (person) => {
     let search = document.querySelector("#search").value
-    console.log(search , typeof(search))
-    if(search === ''){
+    console.log(search, typeof (search))
+    if (search === '') {
         document.querySelector("#id_perent").innerHTML = "";
         return persons.forEach(person => person.render())
     }
 
-    if (/^[a-zA-Zא-ת]+$/.test(search)){
+    if (/^[a-zA-Zא-ת]+$/.test(search)) {
         document.querySelector("#id_perent").innerHTML = "";
         let person_arr = person.filter(item => item.name.toLowerCase().includes(search.toLowerCase()) || item.lastName.toLowerCase().includes(search.toLowerCase()));
         return person_arr.forEach(item => item.render())
     }
-    return  searchById(person)
+    return searchById(person)
 }
 
 
@@ -161,14 +161,14 @@ const searchByName = (person) => {
 //!function to show persons over specific age
 function showPersonsbyAge(persons) {
     document.querySelector("#id_perent").innerHTML = "";
-   let age = document.querySelector("#SBA").value
-   if (age == 0){
-    persons.forEach(person => person.render());
-   }
+    let age = document.querySelector("#SBA").value
+    if (age == 0) {
+        persons.forEach(person => person.render());
+    }
     let result = persons.filter(item => item.age() == age);
     console.log(result);
     return result.forEach(item => item.render())
-   
+
 }
 
 // ?function to show person children by search id,

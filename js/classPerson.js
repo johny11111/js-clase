@@ -13,7 +13,7 @@ class ClassPerson {
     age() {
         return new Date().getFullYear() - this.birth.split("/")[2]
     }
-    
+
     render() {
         let div = document.createElement("div");
         div.className = "container bg-primary border 2px solid p-2 m-2 col-5"
@@ -25,14 +25,14 @@ class ClassPerson {
  birthdate : ${this.birth}<br>
  city : ${this.city}<br>
  id perent: ${this.idPerent}`
- let btn = document.createElement('button');
- btn.className = 'btn btn-primary';
- btn.id = `${this.id}`
- btn.innerHTML = "del"
- 
+        let btn = document.createElement('button');
+        btn.className = 'btn btn-primary';
+        btn.id = `${this.id}`
+        btn.innerHTML = "del"
+
 
         document.querySelector("#id_perent").append(div);
         document.querySelector("#id_perent").appendChild(btn);
-      
+
     }
 }   

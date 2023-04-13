@@ -4,7 +4,7 @@ function menu2() {
     while (flag) {
         let opcion = prompt(msg2)
         if (opcion === "1") {
-            document.querySelector("#id_perent").innerHTML = ""   
+            document.querySelector("#id_perent").innerHTML = ""
             let age = parseInt(prompt('enter age to search'))
             let res = showPersonsbyAge(persons, age)
             res.forEach(element => element.render());
@@ -63,7 +63,7 @@ function menu() {
             document.querySelector("#id_perent").innerHTML += `<h2> the person update in database </h2>`;
             break;
         }
-       else if (serchh === "2") {
+        else if (serchh === "2") {
             document.querySelector("#id_perent").innerHTML = ""
             flag = false;
         }
