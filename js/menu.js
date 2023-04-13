@@ -58,39 +58,18 @@ function menu() {
         let serchh = prompt(msg)
         if (serchh === "1") {
             document.querySelector("#id_perent").innerHTML = ""
-            id = prompt("Enter id")
-            let res = delete_person(persons, id)
-            document.querySelector("#id_perent").innerHTML += `<h2> the person delited from database </h2>`;
-            persons.forEach(person => person.render())
-            break;
-        }
-        if (serchh === "2") {
-            document.querySelector("#id_perent").innerHTML = ""
             let id = prompt("Enter id");
             update_person(persons, id);
             document.querySelector("#id_perent").innerHTML += `<h2> the person update in database </h2>`;
             break;
         }
-        if (serchh === "3") {
-            document.querySelector("#id_perent").innerHTML = ""
-            let opcion = prompt("you want search by name or by id");
-            if (opcion === "id") {
-                let id = prompt("enter id");
-                let res = searchById(persons, id)
-                res.forEach(person => person.render());
-                break
-            }
-            else if (opcion === "name") {
-                let nameS = prompt("enter name");
-                let result = searchByName(persons, nameS);
-                result.forEach(person => person.render());  
-            }
-            break
-        }
-        if (serchh === "4") {
+       else if (serchh === "2") {
             document.querySelector("#id_perent").innerHTML = ""
             flag = false;
         }
     }
 }
+
+
+
 printPerson = persons.forEach(person => person.render())

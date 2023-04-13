@@ -69,26 +69,42 @@ let idPerent = document.querySelector("#id_perentt");
     }
 });
 
-// !function to delete a person
 const delete_person = (names, ID) => {
-    const index = names.findIndex(person => person.id === ID);
-    if (index === -1) {
-        return "Person not found"
-    }
-    const isPerent = names.some(person => person.idPerent === ID);
-    if (isPerent) {
-        const children = names.filter(person => person.idPerent === ID);
+    for (i in ID) {
+      const index = names.findIndex(person => person.id === ID[i]);
+      if (index === -1) {
+        console.log("Person not found");
+        continue;
+      }
+      const isParent = names.some(person => person.idPerent === ID[i]);
+      if (isParent) {
+        const children = names.filter(person => person.idPerent === ID[i]);
         let opcion = prompt(`
-        you can delete your children to 
-        do you wont delete your children`)
+          you can delete your children to 
+          do you want to delete your children?`);
         if (opcion === 'yes') {
-            children.forEach(child => delete_person(names, child.id));
+          delete_person(names, children.map(child => child.id));
+        } else {
+          console.log("Children not deleted");
         }
+      }
+      names.splice(index, 1);
     }
-    names.splice(index, 1)
-    return names
+    return names;
+  };
+  
 
-}
+
+document.addEventListener("click", (event) => {
+    if (event.target.tagName === "BUTTON") {
+      const id = event.target.getAttribute("id");
+      delete_person(persons,[id]);
+      document.querySelector("#id_perent").innerHTML = ""
+      let res = persons.forEach(person => person.render());
+    }
+  });
+  
+
 
 // ?function to update a person
 const update_person = (person, id) => {
@@ -114,20 +130,33 @@ const update_person = (person, id) => {
 }
 
 //!function to searchbyid    
-function searchById(person, id) {
-    let person_arr = person.filter(item => item.id === id);
-
-    return person_arr
+function searchById(person) {
+    let search = document.querySelector("#search").value
+    let person_arr = person.filter(item => item.id == search);
+    document.querySelector("#id_perent").innerHTML = "";
+    return person_arr.forEach(item => item.render())
 }
 
 // ?function to search by name
-const searchByName = (person, name) => {
-    let person_arr = person.filter(item => item.name.toLowerCase().includes(name.toLowerCase()) || item.lastName.toLowerCase().includes(name.toLowerCase()));
-    return person_arr;
+const searchByName = (person) => {
+    let search = document.querySelector("#search").value
+    console.log(search , typeof(search))
+    if(search === ''){
+        document.querySelector("#id_perent").innerHTML = "";
+        return persons.forEach(person => person.render())
+    }
+
+    if (/^[a-zA-Zא-ת]+$/.test(search)){
+        document.querySelector("#id_perent").innerHTML = "";
+        let person_arr = person.filter(item => item.name.toLowerCase().includes(search.toLowerCase()) || item.lastName.toLowerCase().includes(search.toLowerCase()));
+        return person_arr.forEach(item => item.render())
+    }
+    return  searchById(person)
 }
 
 
 // function to menu 2 
+
 
 //!function to show persons over specific age
 function showPersonsbyAge(persons, age) {
@@ -194,3 +223,4 @@ function showPersonByCity(names, city) {
     let res = names.filter(item => item.city === city)
     return res
 }
+

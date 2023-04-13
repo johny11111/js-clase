@@ -18,7 +18,7 @@
                 <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarM">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-
+                    <input id="search" class="border-3 rounded-4 bg-black text-light" type="search" placeholder="חיפוש שם לפי תז או לפי שם " oninput="searchByName(persons)"> 
                 <div class="collapse navbar-collapse" id="navbarM">
                     <label for="btn">חתכים, שאילתות ודו"חות</label>
                     <button id="btn" class="btn btn-danger navbar-item" onclick="menu2()">menu 2</button>
@@ -28,7 +28,7 @@
                 <a id="home" href="#" class=" btn btn-light navbar-brand">home</a>
             </nav>
         </div>
-        <div id="signup" class="d-none d-lg-block float-start">
+        <div id="signup" class="d-lg-block float-lg-start">
             <h3>מילוי פרטים אישיים </h3>
             <form>
                 <label for=""></label>
@@ -46,8 +46,8 @@
                 <label for=""></label>
                 <button id="btn2" class="btn btn-primary">הוספה</button>
             </form>
-        </div>
-
+        </div><br><br>
+    
         <div id="id_perent" class="container center p-0 m-0 row">
             <!-- here show the persons -->
         </div>

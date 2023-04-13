@@ -25,6 +25,14 @@ class ClassPerson {
  birthdate : ${this.birth}<br>
  city : ${this.city}<br>
  id perent: ${this.idPerent}`
+ let btn = document.createElement('button');
+ btn.className = 'btn btn-primary';
+ btn.id = `${this.id}`
+ btn.innerHTML = "del"
+ 
+
         document.querySelector("#id_perent").append(div);
+        document.querySelector("#id_perent").appendChild(btn);
+      
     }
 }   
