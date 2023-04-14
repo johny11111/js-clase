@@ -166,7 +166,7 @@ function showPersonsbyAge(persons) {
         persons.forEach(person => person.render());
     }
     let result = persons.filter(item => item.age() >= age);
-    console.log(result);
+    document.querySelector("#id_perent").innerHTML = "";
     return result.forEach(item => item.render())
 
 }
