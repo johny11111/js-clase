@@ -61,7 +61,7 @@ let btn = document.querySelector("#btn2").addEventListener("click", (event) => {
             alert("The person already exists");
         }
         else if (!personExists) {
-            persons.push(new ClassPerson(firstNameVal, lastNameVal, idVal, birthVal, cityVal, idPerentVal));
+            persons.unshift(new ClassPerson(firstNameVal, lastNameVal, idVal, birthVal, cityVal, idPerentVal));
             let list = document.querySelector("#id_perent");
             list.innerHTML = "";
             persons.forEach(person => person.render());
