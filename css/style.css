@@ -13,6 +13,12 @@ body {
   align-items: center;
   flex-direction: column;
 }
+nav{
+  display:flex;
+  align-items: center;
+  justify-content:space-around;
+ 
+}
 
 #search {
   max-width: auto !important;
@@ -52,7 +58,6 @@ body {
 
 #id_perent button {
   width: 55px;
-
 }
 
 #btn:hover,

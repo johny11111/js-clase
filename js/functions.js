@@ -165,28 +165,32 @@ function showPersonsbyAge(persons) {
     if (age == 0) {
         persons.forEach(person => person.render());
     }
-    let result = persons.filter(item => item.age() == age);
+    let result = persons.filter(item => item.age() >= age);
     console.log(result);
     return result.forEach(item => item.render())
 
 }
 
 // ?function to show person children by search id,
-const findChild = (persons, id) => {
+const findChild = (persons) => {
+    document.querySelector("#id_perent").innerHTML = "";
+   let id = document.querySelector("#SCPBId").value;
+   if (id === "") {
+    return persons.forEach(person => person.render())
+   }
     let res = persons.filter(person => person.idPerent === id);
-    console.log(res);
-    return res;
+    document.querySelector("#id_perent").innerHTML = "";
+    return res.forEach(person => person.render())
 }
 
 //!function to check if month is even month
 function checkMonth(persons) {
-
     let res = persons.filter(item => {
         const month = item.birth.split("/")[1]
         return (month % 2 === 0)
     })
-    console.log(res)
-    return res
+    document.querySelector("#id_perent").innerHTML = ""
+    return res.forEach(item => item.render())
 }
 
 // ?function to check if the person has mor the 2 children 
@@ -195,9 +199,10 @@ function findmor2child(persons) {
         const children = persons.filter(child => child.idPerent === person.id);
         return children.length > 1;
     });
-    console.log(mor2child);
-    return mor2child;
+    document.querySelector("#id_perent").innerHTML = ""
+    return mor2child.forEach(item => item.render());
 }
+
 
 
 
@@ -216,17 +221,50 @@ function isPalindrome(name) {
 
 function palindrome(persons) {
     const palindromes = persons.filter(item => isPalindrome(item.name));
+    console.log(palindromes)
     if (palindromes.length > 0) {
-        console.log(palindromes);
-        return palindromes;
+        document.querySelector("#id_perent").innerHTML = ""
+
+        return palindromes.forEach(item => item.render())
     } else {
         return "No palindromes found.";
     }
 }
 
 // ?function to show person by city
-function showPersonByCity(names, city) {
-    let res = names.filter(item => item.city === city)
-    return res
+function showPersonByCity(names) {
+    let city = document.querySelector("#SBC").value
+    let res = names.filter(item => item.city === city);
+    if (city === "") {
+        return names.forEach(item => item.render());
+    }
+    document.querySelector('#id_perent').innerHTML = ''
+    return res.forEach(item => item.render())
+
 }
+
+
+function selectOption(persons, option) {
+    switch (option) {
+        case "child":
+            findmor2child(persons);
+            break;
+        case "born":
+            checkMonth(persons);
+            break;
+        case "palindrome":
+            palindrome(persons);
+            break;
+        case "city":
+            showPersonByCity(persons);
+            break;
+
+        default:
+            document.querySelector("#id_perent").innerHTML = "";
+            persons.forEach(item => item.render())
+            break;
+
+    }
+}
+
 
