@@ -46,7 +46,7 @@ let btn = document.querySelector("#btn2").addEventListener("click", (event) => {
     // ! check if exict person in database
     let p = persons.forEach(person => {
         if (person.id === id)
-            alert("the person is already exist")
+         return   alert("the person is already exist")
 
     })
 
