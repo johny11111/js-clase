@@ -24,9 +24,8 @@ function checkid(id) {
 
 // !valitazia and add person
 
-let btn = document.querySelector("#btn2").addEventListener("click", (event) => {
+let btn = document.querySelector("#btn3").addEventListener("click", (event) => {
     event.preventDefault();
-
     let firstName = document.querySelector("#fn");
     let lastName = document.querySelector("#ln");
     let id = document.querySelector("#id");
@@ -46,7 +45,7 @@ let btn = document.querySelector("#btn2").addEventListener("click", (event) => {
     // ! check if exict person in database
     let p = persons.forEach(person => {
         if (person.id === id)
-         return   alert("the person is already exist")
+            return alert("the person is already exist")
 
     })
 
@@ -107,27 +106,27 @@ document.addEventListener("click", (event) => {
 
 
 // ?function to update a person
-const update_person = (person, id) => {
+const update_person = (person) => {
+    let id = document.querySelector("#idup").value;
     let personToUpdate = person.findIndex(names => names.id === id)
     if (personToUpdate === -1) {
-        return "person not found"
+        return document.querySelector("#id_perent").innerHTML = "person not found"
     }
-    let update = prompt("enter value to update")
-    if (update === "first name") {
-        person[personToUpdate].name = prompt("enter a new first name")
-        return person
-    }
+    let fnam = document.querySelector("#firnam").value;
+    let lasnam = document.querySelector("#lasnam").value;
+    let cty = document.querySelector("#cty").value;
+    
 
-    if (update === "last name") {
-        person[personToUpdate].lastName = prompt("enter a new last name")
-        return person
-    }
-
-    else if (update === "city") {
-        person[personToUpdate].city = prompt("enter a new city")
-        return person
-    }
+    person[personToUpdate].name = fnam
+    person[personToUpdate].lastName = lasnam
+    person[personToUpdate].city = cty
+    document.querySelector("#id_perent").innerHTML = ''
+    return person.forEach(item => item.render())
 }
+document.querySelector("#btnup").addEventListener("click", () => {
+    let res = update_person(persons)
+    return res.forEach(person => person.render())
+})
 
 //!function to searchbyid    
 function searchById(person) {
@@ -140,7 +139,6 @@ function searchById(person) {
 // ?function to search by name
 const searchByName = (person) => {
     let search = document.querySelector("#search").value
-    console.log(search, typeof (search))
     if (search === '') {
         document.querySelector("#id_perent").innerHTML = "";
         return persons.forEach(person => person.render())
@@ -174,10 +172,10 @@ function showPersonsbyAge(persons) {
 // ?function to show person children by search id,
 const findChild = (persons) => {
     document.querySelector("#id_perent").innerHTML = "";
-   let id = document.querySelector("#SCPBId").value;
-   if (id === "") {
-    return persons.forEach(person => person.render())
-   }
+    let id = document.querySelector("#SCPBId").value;
+    if (id === "") {
+        return persons.forEach(person => person.render())
+    }
     let res = persons.filter(person => person.idPerent === id);
     document.querySelector("#id_perent").innerHTML = "";
     return res.forEach(person => person.render())

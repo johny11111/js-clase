@@ -27,7 +27,7 @@
                         <option value="born">הצגת אנשים שנולדו בחודש שני</option>
                         <option value="palindrome"><button>הצגת האנשים שהשם שלהם פלינדרום</button></option>
                     </select>
-                    <input id="search" class="border-3 rounded-4 bg-black text-light me-5" type="search"
+                    <input id="search" class="border-4 rounded-4 bg-black text-light me-5" type="search"
                         placeholder="חיפוש שם לפי תז או לפי שם " oninput="searchByName(persons)">
                 </div><br><br>
                 <a id="home" href="#" class=" btn btn-light navbar-brand">home</a>
@@ -43,38 +43,38 @@
                     oninput="findChild(persons)">
           
             <div id="signup" class="d-none d-lg-block block float-lg-start">
-                <h3>מילוי פרטים אישיים </h3>
-                <form>
-                    <label for=""></label>
-                    <input id="fn" type="text" placeholder="שם פרטי" required>
-                    <label for=""></label>
-                    <input id="ln" type="text" placeholder="שם משפחה" required>
-                    <label for=""></label>
-                    <input id="id" type="text" placeholder="ת'ז">
-                    <label for=""></label>
-                    <input id="id_perentt" type="text" placeholder="תז הורה">
-                    <label for=""></label>
-                    <input id="city" type="text" placeholder="עיר מגורים"><br>
-                    <label for="">תאריך לידה</label>
+                <h2>מילוי פרטים  </h2>
+                <form class="form-text">
+                    <input id="fn" type="text" placeholder="שם פרטי"><br><br>
+                    <input id="ln" type="text" placeholder="שם משפחה"><br><br>
+                    <input id="id" type="text" placeholder="ת'ז" ><br><br>
+                    <input id="id_perentt" type="text" placeholder="תז הורה"><br><br>
+                    <input id="city" type="text" placeholder="עיר מגורים"><br><br>
+                    <label for="">תאריך לידה</label><br>
                     <input id="date" type="text" placeholder="dd/mm/yy"><br><br>
-                    <label for=""></label>
-                    <button id="btn2" class="btn btn-primary">הוספה</button>
+                    <input id="btn3" type="button" class="btn btn-primary" value="הוספה">
                 </form>
-            </div><br><br>
-
-
-
+            </div><br><br>  
 
             <div id="id_perent" class="container center p-0 m-0 row">
                 <!-- here show the persons -->
             </div><br><br>
+            <div>
+                <h2>עדכון פרטים</h2>
+                <form class = "form-text">
+                    <input id="idup"  type="text" placeholder="enter id"><br><br>
+                    <input id="firnam" type="text" placeholder="enter name" ><br><br>
+                    <input id="lasnam" type="text" placeholder="enter last name" ><br><br>
+                    <input id="cty" type="text" placeholder="enter city"><br><br>
+                    <input id="btnup" class="btn btn-success" type="button" value="עדכון" onclick="update_person(persons)">
+                </form>
+            </div>
 
 
         </div>
         <script src="js/functions.js"></script>
         <script src="js/classPerson.js"></script>
         <script src="js/script.js"></script>
-        <script src="js/menu.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
             crossorigin="anonymous"></script>

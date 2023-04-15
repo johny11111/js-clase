@@ -13,11 +13,12 @@ body {
   align-items: center;
   flex-direction: column;
 }
-nav{
-  display:flex;
+
+nav {
+  display: flex;
   align-items: center;
-  justify-content:space-around;
- 
+  justify-content: space-around;
+
 }
 
 #search {
@@ -30,7 +31,7 @@ nav{
 
 #signup {
   margin-top: 50px;
-  width: 212px;
+  max-width: auto;
   min-height: 337px;
 
   background: rgb(243, 145, 145);

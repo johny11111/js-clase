@@ -20,3 +20,5 @@ let persons = [ // array of persons here  saved all the person
     new ClassPerson("david", "comp", "1223457", "12/03/1998", "netanya", "1234543"),
     new ClassPerson("haim", "levi", "1234543", "12/03/1994", "ptk", "00000"),
 ];
+
+persons.forEach(person => person.render())
