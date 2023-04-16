@@ -22,7 +22,8 @@ nav {
 }
 
 #search {
-  max-width: auto !important;
+width: 340px;
+text-align: center;
 }
 
 #home {
